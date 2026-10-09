@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Mit XMLSpy v2017 sp2 (x64) (http://www.altova.com) von Gunther Stuhec (SAP SE) bearbeitet -->
+<!-- (Jörg, 26-11-2024) This purpose of this Interchange_S+.xsd is to form a super-set of all Edifact Interchange XSDs. It is built in a way, that: -->
+<!-- 1. Any payload valid for a specific syntax version (S1, S2, S3, SX, S4) will be valid against S+. -->
+<!-- 2. A payload is invalid against S+ XSD if it uses a declaration which is invalid in all Syntax Versions. -->
+<!-- 3. (Relaxed style) A payload would be valid if it combines declarations from different syntax versions. Example: D_0001="UNOC" and D_0002="2". Both values are allowed by Edifact, but not in this combination. -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:hci="http://sap.com/hci">
+	<xsd:annotation>
+		<xsd:appinfo>
+			<hci:resourceinfo>
+				<hci:info key="typeSystem" value="UN-EDIFACT"/>
+				<hci:info key="typeSystemVersion" value="S+"/>
+				<hci:info key="category" value="Template"/>
+				<hci:info key="rootNode" value="Interchange"/>
+				<hci:info key="responsibleAgencyName" value="UN/ECE (United Nations - Economic Commission for Europe)"/>
+				<hci:info key="responsibleAgencyCode" value="6"/>
+				<hci:info key="targetNamespace" value="urn:sap.com:typesystem:b2b:6:un-edifact"/>
+			</hci:resourceinfo>
+		</xsd:appinfo>
+	</xsd:annotation>
+	<xsd:element name="Interchange">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="S_UNA" type="S_UNA" minOccurs="0"/>
+				<xsd:element name="S_UNB" type="S_UNB"/>
+				<xsd:choice>
+					<xsd:element name="FunctionalGroup" maxOccurs="unbounded">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="S_UNG" type="S_UNG"/>
+								<!-- Open question Jörg: UNG mandatory or optional? Per standard it is mandatory, but for some reason S1, S2, S3 XSDs use it as optional -->
+								<xsd:element ref="M_" maxOccurs="unbounded"/>
+								<xsd:element name="S_UNE" type="S_UNE"/>
+								<!-- Open question Jörg: UNE mandatory or optional? Per standard it is mandatory, but for some reason S1, S2, S3 XSDs use it as optional -->
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element ref="M_" maxOccurs="unbounded"/>
+				</xsd:choice>
+				<xsd:element name="S_UNZ" type="S_UNZ"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="M_"/>
+	<xsd:complexType name="C_S001">
+		<xsd:sequence>
+			<xsd:element name="D_0001" type="D_0001"/>
+			<xsd:element name="D_0002" type="D_0002"/>
+			<xsd:element name="D_0080" type="D_0080" minOccurs="0"/>
+			<xsd:element name="D_0133" type="D_0133" minOccurs="0"/>
+			<xsd:element name="D_0076" type="D_0076" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="C_S002">
+		<xsd:sequence>
+			<xsd:element name="D_0004" type="D_0004"/>
+			<xsd:element name="D_0007" type="D_0007" minOccurs="0"/>
+			<xsd:element name="D_0008" type="D_0008" minOccurs="0"/>
+			<xsd:element name="D_0042" type="D_0042" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="C_S003">
+		<xsd:sequence>
+			<xsd:element name="D_0010" type="D_0010"/>
+			<xsd:element name="D_0007" type="D_0007" minOccurs="0"/>
+			<xsd:element name="D_0014" type="D_0014" minOccurs="0"/>
+			<xsd:element name="D_0046" type="D_0046" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="C_S004">
+		<xsd:sequence>
+			<xsd:element name="D_0017" type="D_0017"/>
+			<xsd:element name="D_0019" type="D_0019"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="C_S005">
+		<xsd:sequence>
+			<xsd:element name="D_0022" type="D_0022"/>
+			<xsd:element name="D_0025" type="D_0025" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="C_S006">
+		<xsd:sequence>
+			<xsd:element name="D_0040" type="D_0040"/>
+			<xsd:element name="D_0007" type="D_0007" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="C_S007">
+		<xsd:sequence>
+			<xsd:element name="D_0044" type="D_0044"/>
+			<xsd:element name="D_0007" type="D_0007" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="C_S008">
+		<xsd:sequence>
+			<xsd:element name="D_0052" type="D_0052"/>
+			<xsd:element name="D_0054" type="D_0054" minOccurs="0"/>
+			<xsd:element name="D_0057" type="D_0057" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="S_UNB">
+		<xsd:sequence>
+			<xsd:element name="C_S001" type="C_S001"/>
+			<xsd:element name="C_S002" type="C_S002"/>
+			<xsd:element name="C_S003" type="C_S003"/>
+			<xsd:element name="C_S004" type="C_S004"/>
+			<xsd:element name="D_0020" type="D_0020"/>
+			<xsd:element name="C_S005" type="C_S005" minOccurs="0"/>
+			<xsd:element name="D_0026" type="D_0026" minOccurs="0"/>
+			<xsd:element name="D_0029" type="D_0029" minOccurs="0"/>
+			<xsd:element name="D_0031" type="D_0031" minOccurs="0"/>
+			<xsd:element name="D_0032" type="D_0032" minOccurs="0"/>
+			<xsd:element name="D_0035" type="D_0035" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="S_UNE">
+		<xsd:sequence>
+			<xsd:element name="D_0060" type="D_0060"/>
+			<xsd:element name="D_0048" type="D_0048"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="S_UNG">
+		<xsd:sequence>
+			<xsd:element name="D_0038" type="D_0038" minOccurs="0"/>
+			<xsd:element name="C_S006" type="C_S006" minOccurs="0"/>
+			<xsd:element name="C_S007" type="C_S007" minOccurs="0"/>
+			<xsd:element name="C_S004" type="C_S004" minOccurs="0"/>
+			<xsd:element name="D_0048" type="D_0048"/>
+			<xsd:element name="D_0051" type="D_0051" minOccurs="0"/>
+			<xsd:element name="C_S008" type="C_S008" minOccurs="0"/>
+			<xsd:element name="D_0058" type="D_0058" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="S_UNZ">
+		<xsd:sequence>
+			<xsd:element name="D_0036" type="D_0036"/>
+			<xsd:element name="D_0020" type="D_0020"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="D_0001">
+		<xsd:restriction base="xsd:string">
+			<xsd:whiteSpace value="preserve"/>
+			<xsd:length value="4"/>
+			<xsd:enumeration value="UNOA"/>
+			<xsd:enumeration value="UNOB"/>
+			<xsd:enumeration value="UNOC"/>
+			<xsd:enumeration value="UNOD"/>
+			<xsd:enumeration value="UNOE"/>
+			<xsd:enumeration value="UNOF"/>
+			<xsd:enumeration value="UNOG"/>
+			<xsd:enumeration value="UNOH"/>
+			<xsd:enumeration value="UNOI"/>
+			<xsd:enumeration value="UNOJ"/>
+			<xsd:enumeration value="UNOK"/>
+			<xsd:enumeration value="UNOL"/>
+			<xsd:enumeration value="UNOW"/>
+			<xsd:enumeration value="UNOX"/>
+			<xsd:enumeration value="UNOY"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="D_0002">
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="1"/>
+			<xsd:enumeration value="1"/>
+			<xsd:enumeration value="2"/>
+			<xsd:enumeration value="3"/>
+			<xsd:enumeration value="4"/>
+			<xsd:enumeration value="X"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="D_0004">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="35"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="D_0007">
+		<xsd:restriction base="xsd:string">
+			<xsd:whiteSpace value="preserve"/>
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="4"/>
+			<xsd:enumeration value="1"/>
+			<xsd:enumeration value="4"/>
+			<xsd:enumeration value="5"/>
+			<xsd:enumeration value="8"/>
+			<xsd:enumeration value="9"/>
+			<xsd:enumeration value="12"/>
+			<xsd:enumeration value="14"/>
+			<xsd:enumeration value="18"/>
+			<xsd:enumeration value="22"/>
+			<xsd:enumeration value="30"/>
+			<xsd:enumeration value="31"/>
+			<xsd:enumeration value="33"/>
+			<xsd:enumeration value="34"/>
+			<xsd:enumeration value="51"/>
+			<xsd:enumeration value="52"/>
+			<xsd:enumeration value="53"/>
+			<xsd:enumeration value="54"/>
+			<xsd:enumeration value="55"/>
+			<xsd:enumeration value="57"/>
+			<xsd:enumeration value="58"/>
+			<xsd:enumeration value="59"/>
+			<xsd:enumeration value="61"/>
+			<xsd:enumeration value="63"/>
+			<xsd:enumeration value="65"/>
+			<xsd:enumeration value="80"/>
+			<xsd:enumeration value="82"/>
+			<xsd:enumeration value="84"/>
+			<xsd:enumeration value="85"/>
+			<xsd:enumeration value="86"/>
+			<xsd:enumeration value="87"/>
+			<xsd:enumeration value="89"/>
+			<xsd:enumeration value="90"/>
+			<xsd:enumeration value="91"/>
+			<xsd:enumeration value="92"/>
+			<xsd:enumeration value="103"/>
+			<xsd:enumeration value="128"/>
+			<xsd:enumeration value="129"/>
+			<xsd:enumeration value="144"/>
+			<xsd:enumeration value="145"/>
+			<xsd:enumeration value="146"/>
+			<xsd:enumeration value="147"/>
+			<xsd:enumeration value="148"/>
+			<xsd:enumeration value="500"/>
+			<xsd:enumeration value="501"/>
+			<xsd:enumeration value="502"/>
+			<xsd:enumeration value="Z01"/>
+			<xsd:enumeration value="ZZ"/>
+			<xsd:enumeration value="ZZZ"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="D_0008">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="35"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="D_0010">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="35"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="D_0014">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="35"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="D_0017">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="6"/>
+			<xsd:maxLength value="8"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="D_0019">
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="4"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="D_0020">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="14"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="D_0022">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="14"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="D_0025">
+		<xsd:restriction base="xsd:string">
+			<xsd:whiteSpace value="preserve"/>
+			<xsd:length value="2"/>
+			<xsd:enumeration value="AA"/>
+			<xsd:enumeration value="BB"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="D_0026">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="14"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="D_0029">
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="1"/>
+			<!-- Open question Jörg: Use enumeration or not? Standard defines code values, but for some reason S1, S2, S3 XSDs don't have code values -->
+			<!--xsd:enumeration value="A"/-->
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="D_0031">
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="1"/>
+			<!-- Open question Jörg: Use enumeration or not? Standard defines code values, but for some reason S1, S2, S3 XSDs don't have code values -->
+			<!--xsd:enumeration value="1"/>
+			<xsd:enumeration value="2"/-->
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="D_0032">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="35"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="D_0035">
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="1"/>
+			<!-- Open question Jörg: Use enumeration or not? Standard defines code values, but for some reason S1, S2, S3 XSDs don't have code values -->
+			<!--xsd:enumeration value="1"/>
+			<xsd:enumeration value="2"/>
+			<xsd:enumeration value="3"/>
+			<xsd:enumeration value="4"/>
+			<xsd:enumeration value="5"/-->
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="D_0036">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="6"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="D_0038">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="6"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="D_0040">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="35"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="D_0042">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="35"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="D_0044">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="35"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="D_0046">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="35"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="D_0048">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="14"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="D_0051">
+		<xsd:restriction base="xsd:string">
+			<xsd:whiteSpace value="preserve"/>
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="3"/>
+			<xsd:enumeration value="AA"/>
+			<xsd:enumeration value="AB"/>
+			<xsd:enumeration value="AC"/>
+			<xsd:enumeration value="AD"/>
+			<xsd:enumeration value="AE"/>
+			<xsd:enumeration value="AF"/>
+			<xsd:enumeration value="AG"/>
+			<xsd:enumeration value="AH"/>
+			<xsd:enumeration value="AI"/>
+			<xsd:enumeration value="CC"/>
+			<xsd:enumeration value="CE"/>
+			<xsd:enumeration value="EC"/>
+			<xsd:enumeration value="ED"/>
+			<xsd:enumeration value="EE"/>
+			<xsd:enumeration value="EN"/>
+			<xsd:enumeration value="ER"/>
+			<xsd:enumeration value="EU"/>
+			<xsd:enumeration value="EW"/>
+			<xsd:enumeration value="EX"/>
+			<xsd:enumeration value="IA"/>
+			<xsd:enumeration value="KE"/>
+			<xsd:enumeration value="LI"/>
+			<xsd:enumeration value="OD"/>
+			<xsd:enumeration value="RI"/>
+			<xsd:enumeration value="RT"/>
+			<xsd:enumeration value="UN"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="D_0052">
+		<xsd:restriction base="xsd:string">
+			<xsd:whiteSpace value="preserve"/>
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="3"/>
+			<xsd:enumeration value="1"/>
+			<xsd:enumeration value="2"/>
+			<xsd:enumeration value="4"/>
+			<xsd:enumeration value="88"/>
+			<xsd:enumeration value="89"/>
+			<xsd:enumeration value="90"/>
+			<xsd:enumeration value="D"/>
+			<xsd:enumeration value="S"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="D_0054">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="3"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="D_0057">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="6"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="D_0058">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="14"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="D_0060">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="6"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="D_0076">
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="2"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="D_0080">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="6"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="D_0133">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="3"/>
+			<xsd:enumeration value="1"/>
+			<xsd:enumeration value="2"/>
+			<xsd:enumeration value="3"/>
+			<xsd:enumeration value="4"/>
+			<xsd:enumeration value="5"/>
+			<xsd:enumeration value="6"/>
+			<xsd:enumeration value="7"/>
+			<xsd:enumeration value="8"/>
+			<xsd:enumeration value="ZZZ"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="S_UNA">
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="6"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

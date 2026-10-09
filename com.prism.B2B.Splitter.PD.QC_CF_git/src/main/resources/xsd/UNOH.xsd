@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="EDIFACTMessage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="UNA" type="xs:string" />
+        <xs:element name="UNB" type="xs:string" />
+        <xs:element name="UNH" type="xs:string" />
+        <xs:element name="UCI" type="xs:string" />
+        <xs:element name="UNT" type="xs:string" />
+        <xs:element name="UNZ" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,25 @@
+#Fri Oct 09 05:56:42 UTC 2026
+${header.EDI_Splitter_Header=1
+${header.EDI_Splitter_Property=dynamic
+${header.EDI_Splitter_header=1
+${property.EDI_Splitter_Property=1
+EdifactControlMessageVersion=defaultVersion
+EdifactCreateAcknowledgement=checkEDIEnvelop
+EdifactEdiSchemaDefinition=Header
+EdifactHeaderName=Invoice
+EdifactInterchangeNumber=useFromEDIMessage
+EdifactSourceEncoding=UTF-8
+EdifactTransactionMode=interchange
+EdifactUnaRequired=true
+EdifactValidate=envelopAndMessage
+EdifactValidateMessage=true
+X12EdiSchemaDefinition=IntegrationProject
+X12ExcludeAk3Ak4=false
+X12InterchangeNumber=useFromEDIMessage
+X12NumberRange=
+X12SourceEncoding=UTF-8
+X12TransactionMode=interchange
+X12ValidateMessage=basic
+proxyType=none
+receiver_url=ec2-3-75-68-76.eu-central-1.compute.amazonaws.com\:4444
+x12CreateAcknowledgement=required
