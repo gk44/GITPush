@@ -3,7 +3,7 @@ SAP-RuntimeProfile: integrationcell
 Bundle-SymbolicName: com.prism.GENERIC.ODATA.V2.READ_git; singleton:=tru
  e
 Bundle-Name: com.prism.GENERIC.ODATA.V2.READ
-Bundle-Version: 1.0.3
+Bundle-Version: 1.0.10
 Bundle-ManifestVersion: 2
 Origin-Bundle-SymbolicName: com.prism.GENERIC.ODATA.V2.READ_git
 SAP-NodeType: IFLMAP
