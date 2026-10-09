@@ -1,0 +1,17 @@
+#
+#Thu Aug 06 08:57:07 UTC 2026
+Attachments\ Size=101
+Authorization=RoleBased
+Body\ Size=50
+Correlation\ Expression\ (XPath)=/air\:FlightBookingOrderRequest/FlightID/AirlineID
+Data\ Store\ Name=Agg_7
+Last\ Message\ Condition\ (XPath)=/air\:FlightBookingOrderRequest/FlightID/ConnectionID \= '0997'
+Message\ Sequence\ Expression\ (XPath)=
+Signature\ Algorithm=SHA512/RSA
+Signature\ Header\ Name=SAPSimpleSignatureValue
+URL\ to\ WSDL=/wsdl/BookingOrderRequest_Out.wsdl
+User\ Role=ESBMessaging.send
+private\ Key\ Alias=picouser
+soap_receiver2_address=http\://jenkslave55.cpi.c.eu-de-1.cloud.sap\:9543
+soap_receiver_address=https\://proxyavrdev.hana.ondemand.com/Proxy/mo-28f83d6ce.mo.sap.corp/8905/sap/bc/srt/xip/sap/avflightbookingorderrequest_in/107/avatar_flightbooking_in/avatar
+soap_sender_address=/aggregator_signer_v2

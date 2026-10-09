@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:n1="http://sap.com/xi/XI/Demo/Airline" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://flightbooking.avatar.test.com/Prism" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsoap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://flightbooking.avatar.test.com/Prism">
+	<wsdl:documentation>
+		<sidl:sidl xmlns:sidl="http://www.sap.com/2007/03/sidl"/>
+	</wsdl:documentation>
+	<wsdl:types>
+		<xsd:schema xmlns="http://sap.com/xi/XI/Demo/Airline" xmlns:sprx="urn:sap.com:abap:proxy" xmlns:xi0="http://sap.com/xi/XI/Demo/Airline" xmlns:xi1="http://flightbooking.avatar.test.com/Prism" targetNamespace="http://sap.com/xi/XI/Demo/Airline">
+			<xsd:annotation>
+				<xsd:documentation>
+					<sprx:documentation baseURL="http://vmw4748.wdf.sap.corp:50021/sap/bc/esdt/docu/xsd_type?sap-client=107" version="1"/>
+				</xsd:documentation>
+			</xsd:annotation>
+			<xsd:import namespace="http://flightbooking.avatar.test.com/Prism"/>
+			<xsd:element name="FlightBookingOrderRequest" type="xi1:FlightBookingOrderRequest"/>
+			<xsd:element name="ResponseNotPossible">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="standard" type="xi1:ExchangeFaultData"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TechnicalProblemsWhileProcessing">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="standard" type="xi1:ExchangeFaultData"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:schema>
+		<xsd:schema xmlns="http://flightbooking.avatar.test.com/Prism" xmlns:sprx="urn:sap.com:abap:proxy" xmlns:xi0="http://sap.com/xi/XI/Demo/Airline" xmlns:xi1="http://flightbooking.avatar.test.com/Prism" targetNamespace="http://flightbooking.avatar.test.com/Prism">
+			<xsd:annotation>
+				<xsd:documentation>
+					<sprx:documentation baseURL="http://vmw4748.wdf.sap.corp:50021/sap/bc/esdt/docu/xsd_type?sap-client=107" version="1"/>
+				</xsd:documentation>
+			</xsd:annotation>
+			<xsd:complexType name="AgencyData">
+				<xsd:sequence>
+					<xsd:element name="AgencyID">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:string">
+								<xsd:length value="8"/>
+								<xsd:pattern value="\d+"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:element>
+					<xsd:element name="OrderNumber">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:string">
+								<xsd:length value="8"/>
+								<xsd:pattern value="\d+"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:element>
+					<xsd:element name="ItemNumber">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:string">
+								<xsd:length value="2"/>
+								<xsd:pattern value="\d+"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:element>
+					<xsd:element name="OrderType">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:string">
+								<xsd:maxLength value="10"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="ExchangeFaultData">
+				<xsd:sequence>
+					<xsd:element name="faultText" type="xsd:string"/>
+					<xsd:element minOccurs="0" name="faultUrl" type="xsd:string"/>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" name="faultDetail" type="ExchangeLogData"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="ExchangeLogData">
+				<xsd:sequence>
+					<xsd:element minOccurs="0" name="severity" type="xsd:string"/>
+					<xsd:element name="text" type="xsd:string"/>
+					<xsd:element minOccurs="0" name="url" type="xsd:string"/>
+					<xsd:element minOccurs="0" name="id" type="xsd:string"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="FlightBookingOrderRequest">
+				<xsd:sequence>
+					<xsd:element name="Port" type="xsd:string"/>
+					<xsd:element name="AgencyData" type="AgencyData"/>
+					<xsd:element name="FlightID" type="FlightID"/>
+					<xsd:element name="ClassCode">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:string">
+								<xsd:enumeration value="Y"/>
+								<xsd:enumeration value="C"/>
+								<xsd:enumeration value="F"/>
+								<xsd:length value="1"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:element>
+					<xsd:element name="PassengerName">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:string">
+								<xsd:maxLength value="25"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:element>
+					<xsd:element name="PassengerBirthdate">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:date">
+								<xsd:pattern value="[0-9]{4}-[0-9]{2}-[0-9]{2}"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:element>
+					<xsd:element minOccurs="0" name="PassengerFormOfAddress">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:string">
+								<xsd:maxLength value="15"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="FlightID">
+				<xsd:sequence>
+					<xsd:element name="AirlineID">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:string">
+								<xsd:maxLength value="3"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:element>
+					<xsd:element name="ConnectionID">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:string">
+								<xsd:length value="4"/>
+								<xsd:pattern value="\d+"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:element>
+					<xsd:element name="FlightDate">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:date">
+								<xsd:pattern value="[0-9]{4}-[0-9]{2}-[0-9]{2}"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="FlightBookingOrderRequest">
+		<wsdl:part element="n1:FlightBookingOrderRequest" name="FlightBookingOrderRequest"/>
+	</wsdl:message>
+	<wsdl:message name="ResponseNotPossible">
+		<wsdl:part element="n1:ResponseNotPossible" name="ResponseNotPossible"/>
+	</wsdl:message>
+	<wsdl:message name="TechnicalProblemsWhileProcessing">
+		<wsdl:part element="n1:TechnicalProblemsWhileProcessing" name="TechnicalProblemsWhileProcessing"/>
+	</wsdl:message>
+	<wsdl:portType name="FlightBookingOrderRequest_In">
+		<wsdl:documentation>
+			<sapdoc:sapdoc xmlns:sapdoc="urn:sap:esi:documentation">
+				<sapdoc:docitem applicationComponent="BC-XI"/>
+			</sapdoc:sapdoc>
+		</wsdl:documentation>
+		<wsdl:operation name="FlightBookingOrderRequest_In">
+			<wsdl:input message="tns:FlightBookingOrderRequest"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="Avatar" type="tns:FlightBookingOrderRequest_In">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="FlightBookingOrderRequest_In">
+			<soap:operation soapAction="http://flightbooking.avatar.test.com/Prism/FlightBookingOrderRequest_In/FlightBookingOrderRequest_InRequest" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:binding name="Avatar_soap12" type="tns:FlightBookingOrderRequest_In">
+		<wsoap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="FlightBookingOrderRequest_In">
+			<wsoap12:operation soapAction="http://flightbooking.avatar.test.com/Prism/FlightBookingOrderRequest_In/FlightBookingOrderRequest_InRequest" style="document"/>
+			<wsdl:input>
+				<wsoap12:body use="literal"/>
+			</wsdl:input>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="AVFLIGHTBOOKINGORDERREQUEST_IN_A">
+		<wsdl:port binding="tns:Avatar" name="Avatar">
+			<soap:address location="https://vmw4748.wdf.sap.corp:44321/sap/bc/srt/xip/sap/avflightbookingorderrequest_in/107/avflightbookingorderrequest_in_a/avatar"/>
+		</wsdl:port>
+		<wsdl:port binding="tns:Avatar_soap12" name="Avatar_soap12">
+			<wsoap12:address location="https://vmw4748.wdf.sap.corp:44321/sap/bc/srt/xip/sap/avflightbookingorderrequest_in/107/avflightbookingorderrequest_in_a/avatar"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

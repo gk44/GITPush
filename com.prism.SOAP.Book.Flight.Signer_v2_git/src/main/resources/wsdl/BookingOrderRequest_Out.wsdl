@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:p1="http://sap.com/xi/XI/Demo/Agency" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="BookingOrderRequest_Out" soap:location="http://www.example.org/" targetNamespace="http://sap.com/xi/XI/Demo/Agency" wsdlsoap:location="http://www.example.org/">
+	<wsdl:documentation/>
+	<wsp:UsingPolicy wsdl:required="true"/>
+	<wsp:Policy wsu:Id="OP_BookingOrderRequest_Out"/>
+	<wsdl:types>
+		<xsd:schema xmlns="http://sap.com/xi/XI/Demo/Agency" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://sap.com/xi/XI/Demo/Agency">
+			<xsd:element name="BookingOrderRequest" type="BookingOrderRequest"/>
+			<xsd:complexType name="FlightID">
+				<xsd:annotation>
+					<xsd:appinfo source="http://sap.com/xi/TextID">f7a1c382a6d011dfc16f0000092ac156</xsd:appinfo>
+					<xsd:documentation xml:lang="EN">Flight ID (only for use in XI Demo)</xsd:documentation>
+					<xsd:appinfo source="http://sap.com/xi/VersionID">affe33c1a42f11d8beff0002b3ca4e60</xsd:appinfo>
+				</xsd:annotation>
+				<xsd:sequence>
+					<xsd:element name="AirlineID">
+						<xsd:annotation>
+							<xsd:appinfo source="http://sap.com/xi/TextID">6c8736b0fa7411d781b2f3f20a140b82</xsd:appinfo>
+							<xsd:documentation>Airline ID</xsd:documentation>
+						</xsd:annotation>
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:string">
+								<xsd:maxLength value="3"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:element>
+					<xsd:element name="ConnectionID">
+						<xsd:annotation>
+							<xsd:appinfo source="http://sap.com/xi/TextID">6c8736b1fa7411d7aee6f3f20a140b82</xsd:appinfo>
+							<xsd:documentation>Connection ID</xsd:documentation>
+						</xsd:annotation>
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:string">
+								<xsd:length value="4"/>
+								<xsd:pattern value="\d+"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:element>
+					<xsd:element name="FlightDate" type="xsd:date">
+						<xsd:annotation>
+							<xsd:appinfo source="http://sap.com/xi/TextID">6c8736b2fa7411d7cee3f3f20a140b82</xsd:appinfo>
+							<xsd:documentation>Flight date</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="BookingOrderRequest">
+				<xsd:annotation>
+					<xsd:appinfo source="http://sap.com/xi/TextID">e0794eb4a6d011dfb8ca0000092ac156</xsd:appinfo>
+					<xsd:documentation xml:lang="EN">Booking order request (only for use in XI Demo)</xsd:documentation>
+					<xsd:appinfo source="http://sap.com/xi/VersionID">43c8cdf0fa7511d7b50000508bbd7a54</xsd:appinfo>
+				</xsd:annotation>
+				<xsd:sequence>
+					<xsd:element name="AgencyID">
+						<xsd:annotation>
+							<xsd:appinfo source="http://sap.com/xi/TextID">44203cc0fa7511d78548f3f20a140b82</xsd:appinfo>
+							<xsd:documentation>Agency ID</xsd:documentation>
+						</xsd:annotation>
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:string">
+								<xsd:length value="8"/>
+								<xsd:pattern value="\d+"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:element>
+					<xsd:element name="OrderNumber">
+						<xsd:annotation>
+							<xsd:appinfo source="http://sap.com/xi/TextID">44203cc1fa7511d7948bf3f20a140b82</xsd:appinfo>
+							<xsd:documentation>Order number</xsd:documentation>
+						</xsd:annotation>
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:string">
+								<xsd:length value="8"/>
+								<xsd:pattern value="\d+"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:element>
+					<xsd:element name="FlightClass">
+						<xsd:annotation>
+							<xsd:appinfo source="http://sap.com/xi/TextID">44203cc2fa7511d7c938f3f20a140b82</xsd:appinfo>
+							<xsd:documentation>Flight class</xsd:documentation>
+						</xsd:annotation>
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:string">
+								<xsd:length value="1"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:element>
+					<xsd:element name="FlightID" type="FlightID">
+						<xsd:annotation>
+							<xsd:appinfo source="http://sap.com/xi/TextID">44203cc3fa7511d7b8bcf3f20a140b82</xsd:appinfo>
+							<xsd:documentation>Flight ID</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="PassengerData" type="PassengerData">
+						<xsd:annotation>
+							<xsd:appinfo source="http://sap.com/xi/TextID">44203cc4fa7511d7a7cef3f20a140b82</xsd:appinfo>
+							<xsd:documentation>Passenger data</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="PassengerData">
+				<xsd:annotation>
+					<xsd:appinfo source="http://sap.com/xi/TextID">e668a8caa6d011df90000000092ac156</xsd:appinfo>
+					<xsd:documentation xml:lang="EN">Passenger data (only for use in XI Demo)</xsd:documentation>
+					<xsd:appinfo source="http://sap.com/xi/VersionID">cf54a9c1a42f11d883530002b3ca4e60</xsd:appinfo>
+				</xsd:annotation>
+				<xsd:sequence>
+					<xsd:element name="Surname">
+						<xsd:annotation>
+							<xsd:appinfo source="http://sap.com/xi/TextID">521e3260fa7411d78e64f3f20a140b82</xsd:appinfo>
+							<xsd:documentation>Surname</xsd:documentation>
+						</xsd:annotation>
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:string">
+								<xsd:maxLength value="14"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:element>
+					<xsd:element name="FirstName">
+						<xsd:annotation>
+							<xsd:appinfo source="http://sap.com/xi/TextID">521e3261fa7411d794c1f3f20a140b82</xsd:appinfo>
+							<xsd:documentation>First name</xsd:documentation>
+						</xsd:annotation>
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:string">
+								<xsd:maxLength value="10"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:element>
+					<xsd:element name="Birthdate" type="xsd:date">
+						<xsd:annotation>
+							<xsd:appinfo source="http://sap.com/xi/TextID">521e3262fa7411d7ad10f3f20a140b82</xsd:appinfo>
+							<xsd:documentation>Birthdate</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="BookingOrderRequest">
+		<wsdl:documentation/>
+		<wsdl:part element="p1:BookingOrderRequest" name="BookingOrderRequest"/>
+	</wsdl:message>
+	<wsdl:portType name="BookingOrderRequest_Out">
+		<wsdl:documentation/>
+		<wsdl:operation name="BookingOrderRequest_Out">
+			<wsdl:documentation/>
+			<wsp:Policy>
+				<wsp:PolicyReference URI="#OP_BookingOrderRequest_Out"/>
+			</wsp:Policy>
+			<wsdl:input message="p1:BookingOrderRequest"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="BookingOrderRequest_OutBinding" type="p1:BookingOrderRequest_Out">
+		<wsdlsoap:binding xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="BookingOrderRequest_Out">
+			<wsdlsoap:operation xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://sap.com/xi/WebService/soap1.1"/>
+			<wsdl:input>
+				<wsdlsoap:body xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+			</wsdl:input>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="BookingOrderRequest_Out">
+		<wsdl:port binding="p1:BookingOrderRequest_OutBinding" name="BookingOrderRequest_Out">
+			<wsdlsoap:address xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" location="http://www.example.org/"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
