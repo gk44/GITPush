@@ -64,7 +64,7 @@ Import-Package:  com.sap.esb.nodeinfo, com.sap.esb.webservice.mpl.access
  e.blueprint
 Origin-Bundle-Name: com.prism.SOAP.Book.Flight.Signer_v2
 SAP-RuntimeProfile: iflmap
-Bundle-Version: 1.0.3
+Bundle-Version: 1.0.6
 Bundle-Name: com.prism.SOAP.Book.Flight.Signer_v2
 SAP-NodeType: IFLMAP
 Origin-ModifiedDate: 1698756070100

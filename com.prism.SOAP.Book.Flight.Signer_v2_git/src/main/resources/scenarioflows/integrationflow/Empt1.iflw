@@ -786,7 +786,7 @@
                     <value>ctype::FlowstepVariant/cname::GatewayRoute/version::1.0.0</value>
                 </ifl:property>
             </bpmn2:extensionElements>
-            <bpmn2:conditionExpression id="FormalExpression_SequenceFlow_11_1783503541442" xsi:type="bpmn2:tFormalExpression">/air:FlightBookingOrderRequest/FlightID/AirlineID = 'SQ'</bpmn2:conditionExpression>
+            <bpmn2:conditionExpression id="FormalExpression_SequenceFlow_11_1793765719855" xsi:type="bpmn2:tFormalExpression">/air:FlightBookingOrderRequest/FlightID/AirlineID = 'SQ'</bpmn2:conditionExpression>
         </bpmn2:sequenceFlow>
         <bpmn2:sequenceFlow id="SequenceFlow_19" name="Route 2" sourceRef="ExclusiveGateway_8" targetRef="CallActivity_18">
             <bpmn2:extensionElements>
@@ -918,6 +918,8 @@
             </bpmndi:BPMNEdge>
             <bpmndi:BPMNEdge bpmnElement="MessageFlow_56" id="BPMNEdge_MessageFlow_56" sourceElement="BPMNShape_EndEvent_1" targetElement="BPMNShape_Participant_32">
                 <di:waypoint x="938.0" xsi:type="dc:Point" y="382.0"/>
+                <di:waypoint x="938.0" xsi:type="dc:Point" y="267.25"/>
+                <di:waypoint x="1154.0" xsi:type="dc:Point" y="267.25"/>
                 <di:waypoint x="1154.0" xsi:type="dc:Point" y="100.0"/>
             </bpmndi:BPMNEdge>
             <bpmndi:BPMNEdge bpmnElement="MessageFlow_31" id="BPMNEdge_MessageFlow_31" sourceElement="BPMNShape_EndEvent_24" targetElement="BPMNShape_Participant_30">
